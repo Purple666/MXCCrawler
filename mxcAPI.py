@@ -9,8 +9,8 @@ url = 'https://www.mxc.com/open/api/v2/market/ticker?symbol=' + Coin
 
 RMB_NOW = '2443.94'
 
-IN_PRICE = 0.6672
-OUT_PRICE = 0.68
+IN_PRICE = 0.63
+OUT_PRICE = 0.65
 ALARM_KEY = False
 
 
@@ -64,7 +64,7 @@ def fun_timer():
                                                                              (float(response_dict['last']) - IN_PRICE) / IN_PRICE * 100))
 
     global ALARM_KEY
-    if (float(response_dict['last']) - OUT_PRICE) / float(response_dict['last']) < -0.04:
+    if float(response_dict['last']) > IN_PRICE:
         if ALARM_KEY == False:
             send_remind(IN_PRICE, float(response_dict['last']), (float(response_dict['last']) - IN_PRICE) / IN_PRICE * 100)
             ALARM_KEY = True
@@ -72,7 +72,7 @@ def fun_timer():
         ALARM_KEY = False
 
     global timer
-    timer = threading.Timer(1, fun_timer)
+    timer = threading.Timer(2, fun_timer)
     timer.start()
 
 
