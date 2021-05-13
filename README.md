@@ -16,8 +16,12 @@
 ### 1.3 使用前提
 - 需要发送邮箱提供`smtp`功能
 - 需要提供发送邮箱开通`smtp`功能后所获取到的授权码。并且填入`mail_pass`
+### 1.4 使用范例
+`python main.py --coin_name ethereum --in_price 3827.0 --bound 0.5 --update 10 --mail_user xxx -- mail_pass xxx --sender xxx@qq.com --receivers xxx@qq.com,yyy@qq.com`
 
 ## 2. mxcAPI.py
 通过`mxc`交易所提供的API接口获取货币信息
 ### 2.1 额外特性
 使用`requests.get`从`mxc`提供的API接口获取数据，并且用`json()`进行解析
+### 2.2 使用范例
+`python mxcAPI.py --coin_name ETH_USDT --in_price 3827.0 --bound 0.5 --update 10 --mail_user xxx -- mail_pass xxx --sender xxx@qq.com --receivers xxx@qq.com,yyy@qq.com`
